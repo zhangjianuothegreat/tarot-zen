@@ -1,61 +1,66 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row">
+<div class="row tarot-detail-container">
+    <!-- 移除图片，强化文本信息展示 -->
+    <div class="col-12 col-md-10 mx-auto">
+        <!-- 卡片标题区域 - 突出显示正位/逆位状态 -->
+        <div class="tarot-status-header">
+            <h2 class="tarot-card-name" style="font-family: 'Playfair Display', serif; color: var(--color-purple);">
+                {{ name }} {% if rev %}<span class="reversed-badge" style="color: var(--color-gold); font-weight: normal;">(Reversed)</span>{% endif %}
+            </h2>
+            <hr style="border-color: var(--color-gold-light); margin: 1rem 0;">
+        </div>
 
-	{% if rev: %}
+        <!-- 卡片解读内容 - 响应式文本大小 -->
+        <div class="tarot-interpretation" style="font-family: 'Poppins', sans-serif; font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.8;">
+            <h3 style="color: var(--color-purple-dark); margin-bottom: 1rem;">Interpretation</h3>
+            <p style="margin-bottom: 1.5rem;">{{ reversed_meaning if rev else meaning }}</p>
 
-		<div class="col-md-4">
+            <!-- 仅大牌显示额外信息 -->
+            {% if cardtype == "major" and not rev %}
+                <h3 style="color: var(--color-purple-dark); margin: 1.5rem 0 1rem;">Message</h3>
+                <p style="font-style: italic; color: var(--color-text-dark);">{{ message }}</p>
+            {% endif %}
+        </div>
 
-	    	<img src="/static/{{ image }}" style="transform: rotate(180deg); padding-bottom:25px" />
+        <!-- 导航与引流按钮组 - 保持风格统一 -->
+        <div class="tarot-actions" style="margin: 2rem 0; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+            <a href="/one-card/{{ url }}" class="btn" style="background: var(--color-purple); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none;">
+                Deep Dive into This Card
+            </a>
+            <a href="/three-cards" class="btn" style="background: var(--color-gold); color: var(--color-text-dark); padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none;">
+                Draw Three Cards
+            </a>
+            <a href="/tarot-study" class="btn" style="background: transparent; border: 1px solid var(--color-purple); color: var(--color-purple); padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none;">
+                Learn Tarot Basics
+            </a>
+        </div>
 
-		</div>
-
-		<div class="col-md-8">
-
-		    <h3>{{ name }} reversed</h3>
-
-			<hr />
-
-		   	<h4>interpretation</h4>
-
-			<p>{{ reversed_meaning }}</p>
-
-			<p><a href="/one-card/{{ url }}">more about this card</a></p>
-
-
-		</div>
-
-	{% else %}
-
-		<div class="col-md-4">
-
-			<img src="/static/{{ image }}" style="padding-top:25px" />
-
-		</div>
-
-		<div class="col-md-8">
-
-			<h3>{{ name }}</h3>
-
-			<hr />
-
-			<h4>interpretation</h4>
-			<p>{{ meaning }}</p>
-
-			{% if cardtype == "major": %}
-
-				<h4>message</h4>
-				<p><em>{{ message }}</em></p>
-
-			{% endif %}
-
-			<p><a href="/one-card/{{ url }}">more about this card</a></p>
-
-		</div>
-
-	{% endif %}
-
+        <!-- 跨板块引流提示 -->
+        <div class="cross-promotion" style="background: var(--color-light-bg); padding: 1.5rem; border-radius: 8px; margin: 2rem 0; text-align: center;">
+            <p style="margin-bottom: 1rem; font-weight: 600;">Balance your insights with other cosmic wisdom</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                <a href="/astrology" style="color: var(--color-purple); text-decoration: underline;">Western Astrology</a>
+                <a href="/bazi" style="color: var(--color-purple); text-decoration: underline;">Chinese Bazi</a>
+                <a href="/lucky-compass" style="color: var(--color-gold); font-weight: 600;">Lucky Compass Premium</a>
+            </div>
+        </div>
+    </div>
 </div>
+
+<style>
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+        .tarot-actions {
+            flex-direction: column;
+            align-items: center;
+        }
+        .tarot-actions .btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+</style>
 
 {% endblock %}

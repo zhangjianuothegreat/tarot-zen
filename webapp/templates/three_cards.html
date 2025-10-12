@@ -1,59 +1,46 @@
 {% extends "base.html" %}
 
 {% block content %}
+<section class="container">
+    <div class="tarot-section">
+        <h2>Your Three-Card Spread</h2>
+        <p>Unlock the secrets of your past, present, and future with this powerful three-card reading. Each card offers cosmic guidance to light your path!</p>
 
-<div class="row">	
+        {% for card in hand %}
+            <div class="tarot-card">
+                <h3>{{ card[0].name }}{% if card[1] %} (Reversed){% endif %}</h3>
+                <h4>Interpretation</h4>
+                <p>{% if card[1] %}{{ card[0].rdesc }}{% else %}{{ card[0].desc }}{% endif %}</p>
 
-	{% for card in hand %}
+                {% if card[0].cardtype == "major" and not card[1] %}
+                    <h4>Message</h4>
+                    <p><em>{{ card[0].message }}</em></p>
+                {% endif %}
 
-		{% if card[1]: %}
+                <p><a href="/one-card/{{ card[0].url }}" class="btn">More About This Card</a></p>
+            </div>
+        {% endfor %}
 
-		  	<div class="col-md-4">
+        <p><a href="/three-cards" class="btn">Draw Another Spread</a></p>
+        <p><a href="/tarot" class="btn">Back to Tarot Insights</a></p>
+    </div>
 
-		    	<img src="/static/{{ card[0].image }}" style="transform: rotate(180deg); padding-bottom: 25px" />
-
-				<h3>{{ card[0].name }} reversed</h3>
-
-				<hr />
-
-		   		<h4>interpretation</h4>
-
-				<p>{{ card[0].rdesc }}</p>
-
-				<p><a href="/one-card/{{ card[0].url }}">more about this card</a></p>
-
-	    	</div>
-
-   		{% else %}
-
-		  	<div class="col-md-4">
-
-		    	<img src="/static/{{ card[0].image }}" style="padding-top:25px" />
-
-				<h3>{{ card[0].name }}</h3>
-
-				<hr />
-
-		   		<h4>interpretation</h4>
-
-		    	<p>{{ card[0].desc }}</p>
-
-		    	{% if card[0].cardtype == "major": %}
-
-					<h4>message</h4>
-
-					<p><em>{{ card[0].message }}</em></p>
-
-				{% endif %}
-
-				<p><a href="/one-card/{{ card[0].url }}">more about this card</a></p>
-
-	    	</div>
-
-		{% endif %}
-
-    {% endfor %}
-
-</div>
-
+    <section class="funnel-section">
+        <h2>Deepen Your Cosmic Journey</h2>
+        <p>Ready to explore more spiritual insights? Discover these powerful tools at <a href="https://www.yourluckycompass.com">Your Lucky Compass</a>!</p>
+        <div>
+            <a href="https://www.yourluckycompass.com/bazi" class="btn">Discover Your Lucky Cosmic Blueprint - Unlock Ancient Chinese Astrology!</a>
+            <a href="https://www.yourluckycompass.com/lucky_city" class="btn">Find Your Lucky City Match - Where Will You Shine?</a>
+            <a href="https://www.yourluckycompass.com/lucky_compass" class="btn">Navigate with Lucky Compass - Only $2.99/month or $11.99/year!</a>
+            <a href="https://www.yourluckycompass.com/sound_bath" class="btn">Experience Sound Bath & Mindfulness - Find Your Zen!</a>
+        </div>
+        <div class="ad-placeholder">
+            <p>Enhance your Tarot experience with these recommended products!</p>
+            <a href="YOUR_AMAZON_AFFILIATE_LINK_TAROT" class="btn">Shop Tarot Decks on Amazon</a>
+            <!-- Example AdSense: <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="YOUR_AD_CLIENT_ID" data-ad-slot="YOUR_AD_SLOT_ID" data-ad-format="auto"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+        </div>
+    </section>
+</section>
 {% endblock %}

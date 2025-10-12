@@ -1,159 +1,136 @@
 {% extends "base.html" %}
 
 {% block content %}
+<section class="container" id="tarot-study-content">  <!-- 添加锚点ID -->
+    <div class="tarot-section">
+        <h2>Explore the Tarot Universe</h2>
+        <p>Dive into the mystical world of Tarot! Discover the meanings behind Major and Minor Arcana cards, and unlock their wisdom to guide your cosmic journey.</p>
 
-<div class="row">
+        <div class="tarot-card">
+            <h3>Major Arcana: The Soul’s Journey</h3>
+            <p>The Major Arcana cards represent life’s big lessons and spiritual milestones. Click below to explore each card’s unique wisdom!</p>
+            <ol>
+                <li><a href="/one-card/the_magician">The Magician (Le Bateleur)</a> - Mastery and manifestation</li>
+                <li><a href="/one-card/the_popess">The High Priestess (La Pances)</a> - Intuition and mystery</li>
+                <li><a href="/one-card/the_empress">The Empress (Imperatris)</a> - Abundance and nurturing</li>
+                <li><a href="/one-card/the_emperor">The Emperor (L'Empereur)</a> - Authority and structure</li>
+                <li><a href="/one-card/the_pope">The Hierophant (Le Pape)</a> - Tradition and guidance</li>
+                <li><a href="/one-card/the_lover">The Lovers (L'Amoureu)</a> - Connection and choice</li>
+                <li><a href="/one-card/the_chariot">The Chariot (Le Charior)</a> - Determination and victory</li>
+                <li><a href="/one-card/justice">Justice</a> - Fairness and balance</li>
+                <li><a href="/one-card/the_hermit">The Hermit (L'Ermite)</a> - Introspection and wisdom</li>
+                <li><a href="/one-card/the_wheel_of_fortune">The Wheel of Fortune (La Roue de Fortun)</a> - Cycles and destiny</li>
+                <li><a href="/one-card/strength">Strength (Force)</a> - Courage and inner power</li>
+                <li><a href="/one-card/the_hanged_man">The Hanged Man (Le Pandu)</a> - Surrender and perspective</li>
+                <li><a href="/one-card/13">Death</a> - Transformation and endings</li>
+                <li><a href="/one-card/temperance">Temperance</a> - Balance and harmony</li>
+                <li><a href="/one-card/the_devil">The Devil (Le Diable)</a> - Temptation and liberation</li>
+                <li><a href="/one-card/the_house_of_god">The Tower (La Maison Dieu)</a> - Sudden change</li>
+                <li><a href="/one-card/the_star">The Star (L'etoille)</a> - Hope and inspiration</li>
+                <li><a href="/one-card/the_moon">The Moon (La Lune)</a> - Intuition and dreams</li>
+                <li><a href="/one-card/the_sun">The Sun (Le Soleil)</a> - Joy and success</li>
+                <li><a href="/one-card/judgement">Judgement (Le Jugement)</a> - Awakening and renewal</li>
+                <li><a href="/one-card/the_fool">The Fool (Le Fol)</a> - New beginnings (0 or 21)</li>
+                <li><a href="/one-card/the_world">The World (Lemonde)</a> - Completion (21 or 0)</li>
+            </ol>
+        </div>
 
-    <div class="col-md-6">
+        <div class="tarot-card">
+            <h3>Minor Arcana: Everyday Insights</h3>
+            <p>The Minor Arcana cards reflect daily life’s challenges and opportunities. Explore each suit to uncover their guidance!</p>
 
-        <p><br />I've put together a short list of some <a href="/reading-list">suggested further reading here</a>. The Hermetic correspondences listed on this site are taken from the work of 19th century <a href="https://en.wikipedia.org/wiki/G%C3%A9rard_Encausse" target="_blank">French</a> and <a href="https://en.wikipedia.org/wiki/G._O._Mebes" target="_Blank">Russian</a> occultists, use them at your own risk 🙂</p>
+            <h4>Cups (Hearts) - Emotions & Spirituality</h4>
+            <ul>
+                <li><a href="/one-card/king_of_cups">King of Cups</a> - Emotional maturity</li>
+                <li><a href="/one-card/queen_of_cups">Queen of Cups</a> - Inner richness</li>
+                <li><a href="/one-card/knight_of_cups">Knight of Cups</a> - Romantic gestures</li>
+                <li><a href="/one-card/page_of_cups">Page of Cups</a> - Romantic beginnings</li>
+                <li><a href="/one-card/ace_of_cups">Ace of Cups</a> - Love</li>
+                <li><a href="/one-card/two_of_cups">Two of Cups</a> - Partnership</li>
+                <li><a href="/one-card/three_of_cups">Three of Cups</a> - Celebration</li>
+                <li><a href="/one-card/four_of_cups">Four of Cups</a> - Family</li>
+                <li><a href="/one-card/five_of_cups">Five of Cups</a> - Community</li>
+                <li><a href="/one-card/six_of_cups">Six of Cups</a> - Continuity</li>
+                <li><a href="/one-card/seven_of_cups">Seven of Cups</a> - Choices</li>
+                <li><a href="/one-card/eight_of_cups">Eight of Cups</a> - Group connection</li>
+                <li><a href="/one-card/nine_of_cups">Nine of Cups</a> - Harmony</li>
+                <li><a href="/one-card/ten_of_cups">Ten of Cups</a> - Leadership</li>
+            </ul>
 
-        <h3 style="color:green">trumps (or majors, keys, atus)</h3>
-        <ol>
-            <li><a href="/one-card/the_magician">Le Bateleur</a> (literally The Fool, but more usually The Juggler or The Magician)</li>
-            <li><a href="/one-card/the_popess">La Pances</a> (The Popess, later The High Priestess)</li>
-            <li><a href="/one-card/the_empress">Imperatris</a> (The Empress)</li>
-            <li><a href="/one-card/the_emperor">L'Empereur</a> (The Emperor)</li>
-            <li><a href="/one-card/the_pope">Le Pape</a> (The Pope, later The Hierophant)</li>
-            <li><a href="/one-card/the_lover">L'Amoureu</a> (The Lover, later The Lovers)</li>
-            <li><a href="/one-card/the_chariot">Le Charior</a> (The Chariot)</li>
-            <li><a href="/one-card/justice">Justice</a> (Justice)</li>
-            <li><a href="/one-card/the_hermit">L'Ermite</a> (The Hermit)</li>
-            <li><a href="/one-card/the_wheel_of_fortune">La Roue de Fortun</a> (The Wheel of Fortune)</li>
-            <li><a href="/one-card/strength">Force</a> (Strength)</li>
-            <li><a href="/one-card/the_hanged_man">Le Pandu</a> (The Hanged Man)</li>
-            <li><a href="/one-card/13">13</a> (the arcanum with no name, but Death in many decks)</li>
-            <li><a href="/one-card/temperance">Temperance</a> (Temperance)</li>
-            <li><a href="/one-card/the_devil">Le Diable</a> (The Devil)</li>
-            <li><a href="/one-card/the_house_of_god">La Maison Dieu</a> (The House of God, later The Tower)</li>
-            <li><a href="/one-card/the_star">L'etoille</a> (The Star)</li>
-            <li><a href="/one-card/the_moon">La Lune</a> (The Moon)</li>
-            <li><a href="/one-card/the_sun">Le Soleil</a> (The Sun)</li>
-            <li><a href="/one-card/judgement">Le Jugement</a> (Judgement)</li>
-            <li> (or 0) <a href="/one-card/the_fool">Le Fol</a> (Le Mat, The Fool)</li>
-            <li> (or 21) <a href="/one-card/the_world">Lemonde</a> (The World)</li>
-        </ol>
+            <h4>Swords (Spades) - Intellect & Challenges</h4>
+            <ul>
+                <li><a href="/one-card/king_of_swords">King of Swords</a> - Determination</li>
+                <li><a href="/one-card/queen_of_swords">Queen of Swords</a> - Security</li>
+                <li><a href="/one-card/knight_of_swords">Knight of Swords</a> - Seeking direction</li>
+                <li><a href="/one-card/page_of_swords">Page of Swords</a> - Intellectual potential</li>
+                <li><a href="/one-card/ace_of_swords">Ace of Swords</a> - Intellect</li>
+                <li><a href="/one-card/two_of_swords">Two of Swords</a> - Boundaries</li>
+                <li><a href="/one-card/three_of_swords">Three of Swords</a> - Victory</li>
+                <li><a href="/one-card/four_of_swords">Four of Swords</a> - Restriction</li>
+                <li><a href="/one-card/five_of_swords">Five of Swords</a> - Breakthrough</li>
+                <li><a href="/one-card/six_of_swords">Six of Swords</a> - Adaptation</li>
+                <li><a href="/one-card/seven_of_swords">Seven of Swords</a> - Concentration</li>
+                <li><a href="/one-card/eight_of_swords">Eight of Swords</a> - Defenses</li>
+                <li><a href="/one-card/nine_of_swords">Nine of Swords</a> - Courage</li>
+                <li><a href="/one-card/ten_of_swords">Ten of Swords</a> - Exhaustion</li>
+            </ul>
 
+            <h4>Coins (Pentacles) - Material & Work</h4>
+            <ul>
+                <li><a href="/one-card/king_of_coins">King of Coins</a> - Confidence</li>
+                <li><a href="/one-card/queen_of_coins">Queen of Coins</a> - Stability</li>
+                <li><a href="/one-card/knight_of_coins">Knight of Coins</a> - Practical progress</li>
+                <li><a href="/one-card/page_of_coins">Page of Coins</a> - Practical endeavor</li>
+                <li><a href="/one-card/ace_of_coins">Ace of Coins</a> - New beginnings</li>
+                <li><a href="/one-card/two_of_coins">Two of Coins</a> - Balance</li>
+                <li><a href="/one-card/three_of_coins">Three of Coins</a> - Creation</li>
+                <li><a href="/one-card/four_of_coins">Four of Coins</a> - Stability</li>
+                <li><a href="/one-card/five_of_coins">Five of Coins</a> - Disruption</li>
+                <li><a href="/one-card/six_of_coins">Six of Coins</a> - Expansion</li>
+                <li><a href="/one-card/seven_of_coins">Seven of Coins</a> - Acceptance</li>
+                <li><a href="/one-card/eight_of_coins">Eight of Coins</a> - Skill</li>
+                <li><a href="/one-card/nine_of_coins">Nine of Coins</a> - Motivation</li>
+                <li><a href="/one-card/ten_of_coins">Ten of Coins</a> - Abundance</li>
+            </ul>
+
+            <h4>Batons (Wands) - Creativity & Ambition</h4>
+            <ul>
+                <li><a href="/one-card/king_of_clubs">King of Clubs</a> - Creative maturity</li>
+                <li><a href="/one-card/queen_of_clubs">Queen of Clubs</a> - Strong presence</li>
+                <li><a href="/one-card/knight_of_clubs">Knight of Clubs</a> - Change of direction</li>
+                <li><a href="/one-card/page_of_clubs">Page of Clubs</a> - Creative potential</li>
+                <li><a href="/one-card/ace_of_clubs">Ace of Clubs</a> - Creativity</li>
+                <li><a href="/one-card/two_of_clubs">Two of Clubs</a> - Crossroads</li>
+                <li><a href="/one-card/three_of_clubs">Three of Clubs</a> - Progress</li>
+                <li><a href="/one-card/four_of_clubs">Four of Clubs</a> - Stalemate</li>
+                <li><a href="/one-card/five_of_clubs">Five of Clubs</a> - Overcoming</li>
+                <li><a href="/one-card/six_of_clubs">Six of Clubs</a> - Collaboration</li>
+                <li><a href="/one-card/seven_of_clubs">Seven of Clubs</a> - Struggle</li>
+                <li><a href="/one-card/eight_of_clubs">Eight of Clubs</a> - Regulation</li>
+                <li><a href="/one-card/nine_of_clubs">Nine of Clubs</a> - Interruption</li>
+                <li><a href="/one-card/ten_of_clubs">Ten of Clubs</a> - Loyalty</li>
+            </ul>
+        </div>
+
+        <p><a href="/tarot" class="btn">Back to Tarot Insights</a></p>
     </div>
 
-    <div class="col-md-6">
-
-        <a href="/one-card/the_world"><img src="/static/images/21.jpeg" style="padding-top: 2%;" /></a>
-
-    </div>
-
-</div>
-
-<div class="row">
-
-    <div class="col-md-12">
-
-        <hr />
-
-    </div>
-
-</div>
-
-
-<div class="row">
-
-    <div class="col-md-6">
-
-        <h3 style="color:red">cups (or hearts) <span style="color:#2471a3">&#x1f704;</span></h3>
-        <p>the heart - emotional and spiritual life</p>
-        <ul>
-            <li><a href="/one-card/king_of_cups">King of Cups</a> - emotional maturity</li>
-            <li><a href="/one-card/queen_of_cups">Queen of Cups</a> - a rich inner (hidden) world</li>
-            <li><a href="/one-card/knight_of_cups">Knight of Cups</a> - a romantic gesture</li>
-            <li><a href="/one-card/page_of_cups">Page of Cups</a> - first (unsure) steps in a romantic endeavour</li>
-            <li><a href="/one-card/ace_of_cups">Ace of Cups</a> - love</li>
-            <li><a href="/one-card/two_of_cups">Two of Cups</a> - partnership</li>
-            <li><a href="/one-card/three_of_cups">Three of Cups</a> - birth</li>
-            <li><a href="/one-card/four_of_cups">Four of Cups</a> - family</li>
-            <li><a href="/one-card/five_of_cups">Five of Cups</a> - sociability</li>
-            <li><a href="/one-card/six_of_cups">Six of Cups</a> - continuity</li>
-            <li><a href="/one-card/seven_of_cups">Seven of Cups</a> - individuality</li>
-            <li><a href="/one-card/eight_of_cups">Eight of Cups</a> - group involvement</li>
-            <li><a href="/one-card/nine_of_cups">Nine of Cups</a> - group harmony</li>
-            <li><a href="/one-card/ten_of_cups">Ten of Cups</a> - leadership</li>
-        </ul>
-
-    </div>
-
-    <div class="col-md-6">
-
-        <h3>swords (or spades) <span style="color:#f4d03f">&#x1f701;</span></h3>
-        <p>the mind - intellect, division and confrontation</p>
-        <ul>
-            <li><a href="/one-card/king_of_swords">King of Swords</a> - determination to break from the past</li>
-            <li><a href="/one-card/queen_of_swords">Queen of Swords</a> - a secure and protected position</li>
-            <li><a href="/one-card/knight_of_swords">Knight of Swords</a> - intellect looking for the right direction</li>
-            <li><a href="/one-card/page_of_swords">Page of Swords</a> - intellectual potential, but not ready for application</li>
-            <li><a href="/one-card/ten_of_swords">Ten of Swords</a> - exhaustion</li>
-            <li><a href="/one-card/nine_of_swords">Nine of Swords</a> - courage</li>
-            <li><a href="/one-card/eight_of_swords">Eight of Swords</a> - defenses</li>
-            <li><a href="/one-card/seven_of_swords">Seven of Swords</a> - concentration</li>
-            <li><a href="/one-card/six_of_swords">Six of Swords</a> - adaptation</li>
-            <li><a href="/one-card/five_of_swords">Five of Swords</a> - breakthrough</li>
-            <li><a href="/one-card/four_of_swords">Four of Swords</a> - restriction</li>
-            <li><a href="/one-card/three_of_swords">Three of Swords</a> - victory</li>
-            <li><a href="/one-card/two_of_swords">Two of Swords</a> - boundaries</li>
-            <li><a href="/one-card/ace_of_swords">Ace of Swords</a> - intellect</li>
-        </ul>
-
-    </div>
-
-</div>
-
-<div class="row">
-
-    <div class="col-md-6">
-
-        <h3 style="color:red">coins (or pentacles, diamonds) <span style="color:#1e8449">&#x1f703;</span></h3>
-        <p>the body - material matters, money and work</p>
-        <ul>
-            <li><a href="/one-card/king_of_coins">King of Coins</a> - confidence and security</li>
-            <li><a href="/one-card/queen_of_coins">Queen of Coins</a> - material and personal stability</li>
-            <li><a href="/one-card/knight_of_coins">Knight of Coins</a> - advancing in a practical matter</li>
-            <li><a href="/one-card/page_of_coins">Page of Coins</a> - a practical endeavour</li>
-            <li><a href="/one-card/ace_of_coins">Ace of Coins</a> - beginning</li>
-            <li><a href="/one-card/two_of_coins">Two of Coins</a> - duality</li>
-            <li><a href="/one-card/three_of_coins">Three of Coins</a> - product</li>
-            <li><a href="/one-card/four_of_coins">Four of Coins</a> - stability</li>
-            <li><a href="/one-card/five_of_coins">Five of Coins</a> - disruption</li>
-            <li><a href="/one-card/six_of_coins">Six of Coins</a> - expansion</li>
-            <li><a href="/one-card/seven_of_coins">Seven of Coins</a> - acceptance</li>
-            <li><a href="/one-card/eight_of_coins">Eight of Coins</a> - uniformity</li>
-            <li><a href="/one-card/nine_of_coins">Nine of Coins</a> - motivation</li>
-            <li><a href="/one-card/ten_of_coins">Ten of Coins</a> - abundance</li>
-        </ul>
-
-    </div>
-
-	<div class="col-md-6">
-
-        <h3>batons (or wands, clubs) <span style="color:#e74c3c">&#x1f702;</span></h3>
-        <p>the creative urge - desire, ambition and striving</p>
-        <ul>
-            <li><a href="/one-card/king_of_clubs">King of Clubs</a> - maturity in managing desires</li>
-            <li><a href="/one-card/queen_of_clubs">Queen of Clubs</a> - a strong feminine personality</li>
-            <li><a href="/one-card/knight_of_clubs">Knight of Clubs</a> - a change of direction</li>
-            <li><a href="/one-card/page_of_clubs">Page of Clubs</a> - a creative potential</li>
-            <li><a href="/one-card/ten_of_clubs">Ten of Clubs</a> - loyalty</li>
-            <li><a href="/one-card/nine_of_clubs">Nine of Clubs</a> - interruption</li>
-            <li><a href="/one-card/eight_of_clubs">Eight of Clubs</a> - regulation</li>
-            <li><a href="/one-card/seven_of_clubs">Seven of Clubs</a> - struggle</li>
-            <li><a href="/one-card/six_of_clubs">Six of Clubs</a> - collaboration</li>
-            <li><a href="/one-card/five_of_clubs">Five of Clubs</a> - overcoming</li>
-            <li><a href="/one-card/four_of_clubs">Four of Clubs</a> - stalemate</li>
-            <li><a href="/one-card/three_of_clubs">Three of Clubs</a> - moving forward</li>
-            <li><a href="/one-card/two_of_clubs">Two of Clubs</a> - crossroads</li>
-            <li><a href="/one-card/ace_of_clubs">Ace of Clubs</a> - creativity</li>
-        </ul>
-
-    </div>
-
-</div>
-
-
+    <section class="funnel-section">
+        <h2>Deepen Your Cosmic Journey</h2>
+        <p>Ready to explore more spiritual insights? Discover these powerful tools at <a href="https://www.yourluckycompass.com">Your Lucky Compass</a>!</p>
+        <div>
+            <a href="https://www.yourluckycompass.com/bazi" class="btn">Discover Your Lucky Cosmic Blueprint - Unlock Ancient Chinese Astrology!</a>
+            <a href="https://www.yourluckycompass.com/lucky_city" class="btn">Find Your Lucky City Match - Where Will You Shine?</a>
+            <a href="https://www.yourluckycompass.com/lucky_compass" class="btn">Navigate with Lucky Compass - Only $2.99/month or $11.99/year!</a>
+            <a href="https://www.yourluckycompass.com/sound_bath" class="btn">Experience Sound Bath & Mindfulness - Find Your Zen!</a>
+        </div>
+        <div class="ad-placeholder">
+            <p>Enhance your Tarot experience with these recommended products!</p>
+            <a href="YOUR_AMAZON_AFFILIATE_LINK_TAROT" class="btn">Shop Tarot Decks on Amazon</a>
+            <!-- Example AdSense: <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="YOUR_AD_CLIENT_ID" data-ad-slot="YOUR_AD_SLOT_ID" data-ad-format="auto"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+        </div>
+    </section>
+</section>
 {% endblock %}

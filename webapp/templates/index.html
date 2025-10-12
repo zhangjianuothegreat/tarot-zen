@@ -1,48 +1,398 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Insights - Your Lucky Compass</title>
+    <meta name="description" content="Unlock your destiny with a free Tarot reading at Your Lucky Compass. Draw one or three cards to gain cosmic guidance.">
+    <meta name="keywords" content="tarot reading, free tarot, psychic guidance, spiritual insights, Your Lucky Compass">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* 保持原有样式不变 */
+        /* 1. 基础重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-{% block content %}
+        :root {
+            --color-purple: #2E1A47;
+            --color-gold: #FFD700;
+            --color-white: #FFFFFF;
+            --color-gray: #F5F5F5;
+            --color-text: #333333;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --container-width: 1200px;
+            --spacing: 2rem;
+        }
 
-    <h2>Welcome to the Tarot!</h2>
+        html {
+            scroll-behavior: smooth; /* 平滑滚动 */
+        }
 
-    <div class="row">
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background-color: var(--color-white);
+            line-height: 1.5;
+        }
 
-        <div class="col-md-8">
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            line-height: 1.2;
+        }
 
-            <p>Having trouble making a decision? Worried about the future? Concerned that secret forces are controlling your destiny? Then it's time to consult the Tarot..</p>
+        /* 2. 容器类 */
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
 
-            <hr />
+        /* 3. 按钮样式 */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+            background: linear-gradient(135deg, var(--color-gold), #FFC107);
+            color: var(--color-purple);
+            text-align: center;
+        }
 
-            <h4>Ask your question out loud (be as specific as you can) and chose one or three cards:</h4>
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 215, 0, 0.4);
+        }
 
-            <p><strong><a href="/one-card">draw one random card</a></strong>
-            <br />a word of advice in answer to your question;</p>
+        /* 4. 导航栏 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
 
-            <p><strong><a href="/three-cards">draw three random cards</a></strong>
-            <br />advice with more context - your perception (self conscious awareness), what you don't know (subsconcious knowledge) and the truth of the matter (superconsciousness).</p>
+        nav .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
 
-            <p><strong><a href="/tarot-study">tarot study</a></strong>
-                <br />the origins of the tarot are disputed: some say the cards are Italian extensions of an Islamic card game, others tell us the tarot is symbolic wisdom from ancient Egypt, the original Book of Thoth no less...</p>
+        nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
 
-            <hr />
+        nav a:hover {
+            color: var(--color-gold);
+        }
 
-            <h4>WTF?</h4>
+        /* 5. Hero 区域 */
+        header {
+            min-height: calc(100vh - 60px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: var(--spacing);
+            text-align: center;
+            background: none;
+            margin-top: 60px;
+        }
 
-            <p>This little website is a simple application written in Python to draw one or three randomly selected tarot cards from a dictionary of 78 descriptions and image references.  The <a href="https://github.com/jeremytarling/python-tarot">source code is here</a> - there are no license restrictions on the code, please feel free to fork or re-use.</p>
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-purple), #4B0082);
+            z-index: -2;
+        }
 
-            <p>The card images are the late Jean-Claude Flornoy's lovely restoration of the tarot of <a href="https://gallica.bnf.fr/ark:/12148/btv1b10537343h" target="new">Jean Dodal</a> - you can buy the deck from his website <a href="https://tarot-history.com/tarot-of-jean-dodal/" target="new">Tarot History</a>. They are used here with the kind permission of Roxanne Flornoy.</p>
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(46, 26, 71, 0.4);
+            z-index: -1;
+        }
 
-            <p> The card interpretations are the work of the late <a href="http://www.cbdtarot.com/download/" target="_blank">Dr Yoav Ben Dov</a>, which he made available under the <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative Commons by-nc-sa licence</a> - please be sure to link back to his website if you use them.</p>
+        header .container {
+            z-index: 2;
+        }
 
-            <p>As for me, my name is <a href="https://linktr.ee/jeremytarling">Jeremy Tarling</a> and I work as a metadata specialist at the BBC. I've been fascinated by the tarot since childhood when my aunty first introduced me to the cards.</p>
-            
+        header h1 {
+            color: var(--color-white);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+        }
+
+        header h1 span {
+            color: var(--color-gold);
+        }
+
+        header p {
+            color: var(--color-white);
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin: 1rem 0;
+        }
+
+        /* 6. 塔罗牌区域 */
+        .tarot-section {
+            background-color: var(--color-white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .tarot-section h2 {
+            color: var(--color-purple);
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .tarot-section p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .tarot-card {
+            background-color: var(--color-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tarot-card h3 {
+            color: var(--color-purple);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .tarot-card p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--color-text);
+        }
+
+        /* 7. 引流区域 */
+        .funnel-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: var(--color-gray);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .funnel-section h2 {
+            color: var(--color-purple);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 1rem;
+        }
+
+        .funnel-section p {
+            color: var(--color-text);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .funnel-section .btn {
+            margin: 0.5rem;
+        }
+
+        .ad-placeholder {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1rem;
+            color: var(--color-text);
+        }
+
+        /* 8. 页脚 */
+        footer {
+            padding: 3rem 0;
+            background-color: var(--color-purple);
+            color: var(--color-white);
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        footer a {
+            color: var(--color-white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--color-gold);
+        }
+
+        /* 9. 移动端适配 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            header p {
+                font-size: 1.2rem;
+            }
+            .tarot-section {
+                padding: 1.5rem;
+            }
+            .funnel-section .btn {
+                display: block;
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+            nav .container {
+                gap: 1rem;
+            }
+        }
+
+        /* 10. 性能优化 */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+
+        /* 锚点滚动补偿（避开导航栏） */
+        #tarot-study-content, #tarot-result {
+            scroll-margin-top: 100px; /* 确保不被导航栏遮挡 */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="https://www.yourluckycompass.com">Home</a>
+            <a href="https://www.yourluckycompass.com/bazi">Lucky Cosmic Blueprint</a>
+            <a href="https://www.yourluckycompass.com/lucky_city">Lucky City Match</a>
+            <a href="https://www.yourluckycompass.com/lucky_compass">Lucky Compass</a>
+            <a href="https://www.yourluckycompass.com/sound_bath">Sound Bath & Mindfulness</a>
+			<a href="https://www.yourluckycompass.com/astrology">Astrology</a>
+            <a href="https://www.yourluckycompass.com/tarot">Tarot Insights</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>Unlock Your <span>Cosmic Path</span> with Tarot Insights</h1>
+            <p>Draw your free Tarot cards and let the universe guide your journey!</p>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="tarot-section">
+            <h2>Seek Guidance from the Tarot</h2>
+            <p>Feeling lost or uncertain? Ask the Tarot for clarity! Speak your question aloud, focus your energy, and choose your reading below. Our free Tarot readings offer wisdom for your past, present, and future.</p>
+            <div>
+                <a href="/one-card#tarot-result" class="btn">Draw One Card</a> <!-- 链接添加锚点 -->
+                <p>A single card to provide quick, powerful insight into your question.</p>
+                <a href="/three-cards#tarot-result" class="btn">Draw Three Cards</a> <!-- 链接添加锚点 -->
+                <p>A three-card spread for deeper context: your conscious mind, subconscious truths, and universal wisdom.</p>
+                <a href="/tarot-study#tarot-study-content" class="btn">Explore Tarot Wisdom</a>
+                <p>Learn the ancient secrets of the Tarot and its mystical origins.</p>
+            </div>
         </div>
 
-        <div class="col-md-4">
-
-            <a href="/one-card/the_magician"><img src="/static/images/01.jpeg" /></a>
-
+        <div class="tarot-section" id="tarot-result">
+            <!-- 塔罗牌结果会在这里显示 -->
         </div>
 
-    </div>
+        <section class="funnel-section">
+            <h2>Discover More Mystical Tools</h2>
+            <p>Ready to deepen your cosmic journey? Explore these powerful resources at <a href="https://www.yourluckycompass.com">Your Lucky Compass</a>!</p>
+            <div>
+                <a href="https://www.yourluckycompass.com/bazi" class="btn">Discover Your Lucky Cosmic Blueprint - Unlock Ancient Chinese Astrology!</a>
+                <a href="https://www.yourluckycompass.com/lucky_city" class="btn">Find Your Lucky City Match - Where Will You Shine?</a>
+                <a href="https://www.yourluckycompass.com/lucky_compass" class="btn">Navigate with Lucky Compass - Only $2.99/month or $11.99/year!</a>
+                <a href="https://www.yourluckycompass.com/sound_bath" class="btn">Experience Sound Bath & Mindfulness - Find Your Zen!</a>
+				<a href="https://www.yourluckycompass.com/astrology" class="btn">Blend Eastern wisdom with Western astrology for balanced life insights.</a>
+            </div>
+            <div class="ad-placeholder">
+                <p>Explore our recommended products and services to enhance your spiritual journey!</p>
+            </div>
+        </section>
+    </section>
 
-{% endblock %}
+    <footer>
+        <div class="container">
+            <p>© 2025 Your Lucky Compass. All rights reserved.</p>
+            <p>Special thanks to <a href="https://github.com/jeremytarling/python-tarot">Jeremy Tarling</a> for his open-source Python tarot code, which powers this experience.</p>
+            <div class="social-links">
+                <a href="https://www.yourluckycompass.com" class="btn">Visit Your Lucky Compass</a>
+                <a href="#" id="add-to-home" class="btn">Add to Home Screen</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // PWA 添加到主屏幕
+        let deferredPrompt;
+        const addToHomeButton = document.getElementById('add-to-home');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            addToHomeButton.style.display = 'inline-block';
+        });
+
+        addToHomeButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                    } else {
+                        console.log('User dismissed the A2HS prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            } else {
+                alert('To add Your Lucky Compass to your home screen, use your browser\'s menu and select "Add to Home Screen" or "Install App".');
+            }
+        });
+
+        // 核心：页面加载完成后自动滚动到塔罗牌结果区域
+        document.addEventListener('DOMContentLoaded', () => {
+            const tarotResult = document.getElementById('tarot-result');
+            // 检查结果区域是否有内容（即是否刚抽完牌）
+            if (tarotResult && tarotResult.children.length > 0) {
+                // 平滑滚动到结果区域，且确保在导航栏下方
+                tarotResult.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }
+        });
+    </script>
+</body>
+</html>

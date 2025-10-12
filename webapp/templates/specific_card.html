@@ -1,58 +1,57 @@
 {% extends "base.html" %}
+
 {% block content %}
+<section class="container">
+    <div class="tarot-section">
+        <h2>Your Tarot Card: <span>{{ name }}</span></h2>
+        <p>Discover the cosmic wisdom hidden in your card. Read below to uncover its meaning and how it guides your journey!</p>
 
-<div class="row">
+        <div class="tarot-card">
+            <h3>{{ name }}</h3>
+            <h4>Interpretation</h4>
+            <p>{{ meaning }}</p>
 
-	<div class="col-md-4">
+            {% if cardtype == "major" %}
+                <h4>Message</h4>
+                <p><em>{{ message }}</em></p>
+            {% endif %}
 
-	    <img src="/static/{{ image }}" style="padding-top:25px" />
+            <h4>If Reversed</h4>
+            <p>{{ reversed_meaning }}</p>
 
-	</div>
+            <h4>Mystical Insights</h4>
+            <p><strong>Qabalah</strong>: {{ qabalah|safe }}</p>
+            
+            {% if cardtype == "major" %}
+                <p><strong>Hebrew Letter</strong>: {{ hebrew_letter|safe }}</p>
+                {% if sequence != 15 %}
+                    <p><strong>Meditation</strong>: {{ meditation }}</p>
+                {% endif %}
+            {% endif %}
 
-	<div class="col-md-8">
+            <p>
+                <a href="{{ previous }}" class="btn">Previous Card</a>
+                <a href="{{ next }}" class="btn">Next Card</a>
+            </p>
+        </div>
+    </div>
 
-		<h3>{{ name }}</h3>
-
-		<hr />
-
-		<h4>interpretation</h4>
-		<p>{{ meaning }}</p>
-
-		{% if cardtype == "major": %}
-
-		    <h4>message</h4>
-			<p><em>{{ message }}</em></p>
-
-		{% endif %}
-
-		<h4>if reversed</h4>
-		<p>{{ reversed_meaning }}</p>
-
-		<hr />
-
-		<h4>hermetic correspondences</h4>
-
-		<p><em>qabalah</em>: {{ qabalah|safe }}</p>
-
-		{% if cardtype == "major": %}
-
-			<p><em>hebrew letter</em>: <span style="font-family: 'Noto Serif Hebrew'">{{ hebrew_letter|safe }}</span></p>
-
-			{% if sequence != 15 %}
-
-				<p><em>meditation</em>: <br />
-				<span style="white-space: pre">{{ meditation }}<span></p>
-					
-			{% endif %}
-
-		{% endif %}
-
-		<hr />
-
-		<p><a href="{{ previous }}">previous card</a> || <a href="{{ next }}">next card</a></p>
-
-	</div>
-
-</div>
-
+    <section class="funnel-section">
+        <h2>Deepen Your Cosmic Journey</h2>
+        <p>Ready to explore more spiritual insights? Discover these powerful tools at <a href="https://www.yourluckycompass.com">Your Lucky Compass</a>!</p>
+        <div>
+            <a href="https://www.yourluckycompass.com/bazi" class="btn">Discover Your Lucky Cosmic Blueprint - Unlock Ancient Chinese Astrology!</a>
+            <a href="https://www.yourluckycompass.com/lucky_city" class="btn">Find Your Lucky City Match - Where Will You Shine?</a>
+            <a href="https://www.yourluckycompass.com/lucky_compass" class="btn">Navigate with Lucky Compass - Only $2.99/month or $11.99/year!</a>
+            <a href="https://www.yourluckycompass.com/sound_bath" class="btn">Experience Sound Bath & Mindfulness - Find Your Zen!</a>
+        </div>
+        <div class="ad-placeholder">
+            <p>Enhance your Tarot experience with these recommended products!</p>
+            <a href="YOUR_AMAZON_AFFILIATE_LINK_TAROT" class="btn">Shop Tarot Decks on Amazon</a>
+            <!-- Example AdSense: <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="YOUR_AD_CLIENT_ID" data-ad-slot="YOUR_AD_SLOT_ID" data-ad-format="auto"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+        </div>
+    </section>
+</section>
 {% endblock %}
